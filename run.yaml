@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: tax-calculator-pipeline-run-
+spec:
+  pipelineRef:
+    name: tax-calculator-pipeline
+  workspaces:
+    - name: shared-data
+      persistentVolumeClaim:
+        claimName: your-pvc-name  # Replace with the name of your actual PVC

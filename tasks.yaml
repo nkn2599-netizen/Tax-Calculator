@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: npm-install
+  name: npm
 spec:
   workspaces:
     - name: source
@@ -9,20 +9,19 @@ spec:
     - name: install
       image: node:18
       workingDir: $(workspaces.source.path)
-      script: |
-        npm install
-
+      command: ["npm"]
+      args: ["install"]
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: jasmine-test
+  name: jasmine
 spec:
   workspaces:
     - name: source
   steps:
-    - name: run-tests
+    - name: test
       image: node:18
       workingDir: $(workspaces.source.path)
-      script: |
-        npx jasmine
+      command: ["npx"]
+      args: ["jasmine"]

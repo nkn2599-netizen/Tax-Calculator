@@ -8,23 +8,21 @@ spec:
   tasks:
     - name: npm-install
       taskRef:
-        name: npm-install
+        name: npm
       workspaces:
         - name: source
           workspace: shared-data
-          
     - name: run-tests
       taskRef:
-        name: jasmine-test
+        name: jasmine
       runAfter:
         - npm-install
       workspaces:
         - name: source
           workspace: shared-data
-          
     - name: build-image
       taskRef:
-        name: build-image
+        name: build
       runAfter:
         - run-tests
       workspaces:

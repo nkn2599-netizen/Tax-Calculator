@@ -1,0 +1,11 @@
+{
+  "name": "tax-calculator",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jasmine",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "jasmine": "^4.0.0"
+  }
+}

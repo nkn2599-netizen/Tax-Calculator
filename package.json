@@ -1,11 +1,13 @@
 {
   "name": "tax-calculator",
   "version": "1.0.0",
+  "description": "A simple tax calculator",
+  "main": "index.js",
   "scripts": {
-    "test": "jasmine",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "npx jasmine"
   },
   "devDependencies": {
-    "jasmine": "^4.0.0"
+    "jasmine": "^5.1.0"
   }
 }

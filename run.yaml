@@ -1,11 +1,20 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: tax-calculator-pipeline-run-
+  generateName: tax-calculator-run-
 spec:
   pipelineRef:
     name: tax-calculator-pipeline
   workspaces:
     - name: shared-data
-      persistentVolumeClaim:
-        claimName: your-pvc-name  # Replace with the name of your actual PVC
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+  # Include params if your pipeline definition requires them
+  params:
+    - name: repo-url
+      value: https://github.com/nkn2599-netizen/juphc-tc_pipeline
